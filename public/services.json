@@ -3,24 +3,24 @@
         
         "id": 1,
         "title": "Discover Old Dhaka - Full Day",
-        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-        "price": "60 $",
+        "description": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+        "price": "10$ Hour",
         "img": "https://cdn.pixabay.com/photo/2014/10/06/13/19/bangladesh-476308_960_720.jpg"
       },
     {
         
         "id": 2,
         "title": "Explore The Beauty of Cox Bazar",
-        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-        "price": "100 $",
+        "description": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+        "price": "25$ Hour",
         "img": "https://cdn.pixabay.com/photo/2019/02/12/04/28/bangladesh-3991311_960_720.jpg"
       },
     {
         
         "id": 3,
         "title": "Explore The Nature Mighty Sylhet",
-        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-        "price": "150 $",
+        "description": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+        "price": "15$ Hour",
         "img": "https://cdn.pixabay.com/photo/2018/09/12/22/47/nature-3673387_960_720.jpg"
       }
 
