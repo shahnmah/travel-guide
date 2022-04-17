@@ -9,6 +9,8 @@ import './Login.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -35,8 +37,13 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
     const handleForgotPassword = async () => {
-        await sendPasswordResetEmail(email);
-        alert('Sent email');
+        if(email){
+            await sendPasswordResetEmail(email);
+        toast('Sent email');
+        }
+        else{
+            toast('Enter Your Email First')
+        }
     }
     return (
         <div className='login-form my-5'>
@@ -76,6 +83,7 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
+                    <ToastContainer />
                 </div>
             </div>
         </div>
