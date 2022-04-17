@@ -8,8 +8,8 @@ const Testimonial = () => {
                 <div className="col-lg-6">
                     <div className="card mb-3" style={{width: "540px"}}>
                         <div className="row g-0">
-                            <div className="col-md-4">
-                                <img src="https://cdn.pixabay.com/photo/2018/11/08/23/52/man-3803551_960_720.jpg" className="img-fluid rounded-start" alt="..."/>
+                        <   div className="col-md-4">
+                                <img className='img-fluid' src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="..."/>
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body">
@@ -25,7 +25,7 @@ const Testimonial = () => {
                     <div className="card mb-3" style={{width: "540px"}}>
                         <div className="row g-0">
                             <div className="col-md-4">
-                                <img src="https://cdn.pixabay.com/photo/2018/11/08/23/52/man-3803551_960_720.jpg" className="img-fluid rounded-start" alt="..."/>
+                                <img className='img-fluid' src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="..."/>
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body">

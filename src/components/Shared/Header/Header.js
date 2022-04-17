@@ -26,6 +26,7 @@ const Header = () => {
                             navbarScroll
                         >
                             <Link to='/home'>Home</Link>
+                            <Link to='/aboutme'>About Me</Link>
                             <Link to='/checkout'>Checkout</Link>
                             {
                                 user? <button className='btn btn-link sign-out' onClick={handleSignOut}>SignOut</button> : <Link to='/login'>Login</Link>
