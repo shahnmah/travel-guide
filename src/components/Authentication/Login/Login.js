@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import bgImg from '../../../images/bg-1.png';
@@ -6,12 +6,31 @@ import googleIcon from '../../../images/icons/google.png';
 import githubIcon from '../../../images/icons/github.png';
 import facebookIcon from '../../../images/icons/facebook.png';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 
 const Login = () => {
-
-
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+      const [email, setEmail] = useState('')
+      const [password, setPassword] = useState('')  
+      const navigate = useNavigate()
+      if(error){
+          console.log(error)
+      }
+      if(user){
+        navigate('/home')
+      }
+      const handleFormSubmit = (e) =>{
+          e.preventDefault();
+          signInWithEmailAndPassword(email, password)
+      }
     return (
         <div className='login-form my-5'>
             <div className="container">
@@ -22,18 +41,18 @@ const Login = () => {
                     </div>
                     <div className="col-lg-6 ps-5">
                         <h1 className='mb-5'>Login</h1>
-                        <form>
+                        <form onSubmit={handleFormSubmit}>
                             <div className="form-group mb-3">
                                 <label for="email">
                                     <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
                                 </label>
-                                <input className='d-block w-75' type="email" name='email' placeholder='Enter Email' />
+                                <input onBlur={(e)=> setEmail(e.target.value)} className='d-block w-75' type="email" name='email' placeholder='Enter Email' />
                             </div>
                             <div className="form-group mb-1">
                                 <label for="email">
                                     <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
                                 </label>
-                                <input className='d-block w-75' type="password" name='password' placeholder='Enter Password' />
+                                <input onBlur={(e)=> setPassword(e.target.value)} className='d-block w-75' type="password" name='password' placeholder='Enter Password' />
                             </div>
                             <Link className='text-decoration-none' to='/signup'>Forgot Password ?</Link>
                             <Link className='text-decoration-none d-block' to='/signup'>Don't have an account ?</Link>

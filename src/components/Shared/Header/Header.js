@@ -1,9 +1,12 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import logo from '../../../images/logo.png'
 import './Header.css'
 const Header = () => {
+    // const [user] = useAuthState(auth);
     return (
         <div className='header'>
             <Navbar bg="transparent" expand="lg">
@@ -19,7 +22,8 @@ const Header = () => {
                             navbarScroll
                         >
                             <Link to='/home'>Home</Link>
-                            <Link to='/Login'>Login</Link>
+                            <Link to='/login'>Login</Link>
+                            <Link to='/checkout'>Checkout</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
