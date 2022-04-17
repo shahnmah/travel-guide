@@ -1,11 +1,11 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
-import bgImg from '../../../images/bg-1.png'
-import googleIcon from '../../../images/icons/google.png'
-import githubIcon from '../../../images/icons/github.png'
-import facebookIcon from '../../../images/icons/facebook.png'
-import './Login.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import bgImg from '../../../images/bg-1.png';
+import googleIcon from '../../../images/icons/google.png';
+import githubIcon from '../../../images/icons/github.png';
+import facebookIcon from '../../../images/icons/facebook.png';
+import './Login.css';
 import { Link } from 'react-router-dom';
 
 
@@ -39,7 +39,7 @@ const Login = () => {
                             <Link className='text-decoration-none d-block' to='/signup'>Don't have an account ?</Link>
                             <button className='btn btn-warning d-block py-1 px-4 mt-4'>Login</button>
                         </form>
-                        <div className='d-flex my-5'>
+                        <div className='d-flex my-5 social-option'>
                             <p>Or login with-</p>
                             <div className='mx-auto'>
                                 <img src={googleIcon} alt="" />
