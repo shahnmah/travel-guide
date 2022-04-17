@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import bgImg from '../../../images/bg-1.png';
@@ -8,6 +8,7 @@ import githubIcon from '../../../images/icons/github.png';
 import facebookIcon from '../../../images/icons/facebook.png';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import { async } from '@firebase/util';
 
 const SignUp = () => {
     const [
@@ -15,23 +16,27 @@ const SignUp = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
-      const navigate = useNavigate()
-      const [email, setEmail] = useState('')
-      const [password, setPassword] = useState('')     
-      const [name, setName] = useState('')   
-      console.log(email, password)
-      if(error){
-          console.log(error.message)
-      }
-      if(user){
-          navigate('/home')
-      }
-   
-      const handleFormSubmit = (e) =>{
-          e.preventDefault()
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
+    const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    let errorElement;
+    if (error || githubError || googleError) {
+        errorElement = <div>
+            <p className='text-danger'>Error: {error?.message} {githubError?.message} {googleError?.message}</p>
+        </div>
+
+    }
+    if (user || googleUser || githubUser) {
+        navigate('/home')
+    }
+    const handleFormSubmit = (e) => {
+        e.preventDefault()
         createUserWithEmailAndPassword(email, password)
-      }
+    }
+
 
     return (
         <div>
@@ -50,29 +55,28 @@ const SignUp = () => {
                                 <label for="email">
                                     <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
                                 </label>
-                                <input onBlur={(e)=> setEmail(e.target.value)} className='d-block w-75' type="email" name='email' placeholder='Enter Email' />
+                                <input onBlur={(e) => setEmail(e.target.value)} required className='d-block w-75' type="email" name='email' placeholder='Enter Email' />
                             </div>
                             <div className="form-group mb-1">
                                 <label for="password">
                                     <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
                                 </label>
-                                <input onBlur={(e)=> setPassword(e.target.value)} className='d-block w-75' type="password" name='password' placeholder='Enter Password' />
+                                <input onBlur={(e) => setPassword(e.target.value)} requireds className='d-block w-75' type="password" name='password' placeholder='Enter Password' />
                             </div>
-                            <Link className='text-decoration-none' to='/signup'>Forgot Password ?</Link>
                             <Link className='text-decoration-none d-block' to='/login'>Already have an account ?</Link>
                             <button className='btn btn-warning d-block py-1 px-4 mt-4'>Sign Up</button>
                         </form>
+                        {errorElement}
                         <div className='d-flex my-5 social-option'>
                             <p>Or Sign up with-</p>
                             <div className='mx-auto'>
-                                <img src={googleIcon} alt="" />
-                                <img className='mx-4' src={githubIcon} alt="" />
+                                <img onClick={()=> signInWithGoogle()} src={googleIcon} alt="" />
+                                <img onClick={()=> signInWithGithub()} className='mx-4' src={githubIcon} alt="" />
                                 <img src={facebookIcon} alt="" />
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-6 d-flex justify-content-center">
-                        {/* <img className='img-fluid' src={'https://img.freepik.com/free-photo/shocked-impressed-female-tourist-points-copy-space-holds-travel-map_273609-25415.jpg?t=st=1650187663~exp=1650188263~hmac=908ca8b797d417a3a5b500577dd6309f1bbcd0c4425599178d9e5b43e97361e2&w=740'} alt="" /> */}
                         <img height={'400px'} src={bgImg} alt="" />
                     </div>
                 </div>

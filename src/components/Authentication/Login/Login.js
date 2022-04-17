@@ -6,31 +6,38 @@ import googleIcon from '../../../images/icons/google.png';
 import githubIcon from '../../../images/icons/github.png';
 import facebookIcon from '../../../images/icons/facebook.png';
 import './Login.css';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
 
 const Login = () => {
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-      ] = useSignInWithEmailAndPassword(auth);
-      const [email, setEmail] = useState('')
-      const [password, setPassword] = useState('')  
-      const navigate = useNavigate()
-      if(error){
-          console.log(error)
-      }
-      if(user){
+    const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail();
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const navigate = useNavigate()
+    let errorElement;
+    if (error || githubError || googleError) {
+        errorElement = <div>
+            <p className='text-danger'>Error: {error?.message} {githubError?.message} {googleError?.message}</p>
+        </div>
+
+    }
+    if (user || googleUser || githubUser) {
         navigate('/home')
-      }
-      const handleFormSubmit = (e) =>{
-          e.preventDefault();
-          signInWithEmailAndPassword(email, password)
-      }
+    }
+    const handleLoginForm = (e) => {
+        e.preventDefault()
+        signInWithEmailAndPassword(email, password)
+    }
+    const handleForgotPassword = async () => {
+        await sendPasswordResetEmail(email);
+        alert('Sent email');
+    }
     return (
         <div className='login-form my-5'>
             <div className="container">
@@ -41,28 +48,30 @@ const Login = () => {
                     </div>
                     <div className="col-lg-6 ps-5">
                         <h1 className='mb-5'>Login</h1>
-                        <form onSubmit={handleFormSubmit}>
+                        <form onSubmit={handleLoginForm}>
                             <div className="form-group mb-3">
                                 <label for="email">
                                     <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
                                 </label>
-                                <input onBlur={(e)=> setEmail(e.target.value)} className='d-block w-75' type="email" name='email' placeholder='Enter Email' />
+                                <input onBlur={(e) => setEmail(e.target.value)} required className='d-block w-75' type="email" name='email' placeholder='Enter Email' />
                             </div>
                             <div className="form-group mb-1">
                                 <label for="email">
                                     <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
                                 </label>
-                                <input onBlur={(e)=> setPassword(e.target.value)} className='d-block w-75' type="password" name='password' placeholder='Enter Password' />
+                                <input onBlur={(e) => setPassword(e.target.value)} required className='d-block w-75' type="password" name='password' placeholder='Enter Password' />
                             </div>
-                            <Link className='text-decoration-none' to='/signup'>Forgot Password ?</Link>
+                            <p role="button"
+                                onClick={handleForgotPassword} className='text-decoration-none' to='/signup'>Forgot Password ?</p>
                             <Link className='text-decoration-none d-block' to='/signup'>Don't have an account ?</Link>
                             <button className='btn btn-warning d-block py-1 px-4 mt-4'>Login</button>
                         </form>
+                        {errorElement}
                         <div className='d-flex my-5 social-option'>
                             <p>Or login with-</p>
                             <div className='mx-auto'>
-                                <img src={googleIcon} alt="" />
-                                <img className='mx-4' src={githubIcon} alt="" />
+                                <img onClick={() => signInWithGoogle()} src={googleIcon} alt="" />
+                                <img onClick={() => signInWithGithub()} className='mx-4' src={githubIcon} alt="" />
                                 <img src={facebookIcon} alt="" />
                             </div>
                         </div>
