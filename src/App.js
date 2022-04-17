@@ -4,6 +4,7 @@ import CheckOut from './components/Authentication/CheckOut/CheckOut';
 import Login from './components/Authentication/Login/Login';
 import SignUp from './components/Authentication/SignUp/SignUp';
 import Home from './components/Home/Home/Home';
+import NotFound from './components/NotFound/NotFound';
 import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/checkout' element={<CheckOut></CheckOut>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
