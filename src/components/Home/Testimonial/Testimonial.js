@@ -13,8 +13,8 @@ const Testimonial = () => {
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <h5 className="card-title">Roberto Karlos</h5>
+                                    <p className="card-text">Wow what great service, I love it! David impressed me on multiple levels. Just what I was looking for.Thanks for the great service</p>
                                     <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                                 </div>
                             </div>
@@ -29,8 +29,8 @@ const Testimonial = () => {
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <h5 className="card-title">Sandro John</h5>
+                                    <p className="card-text">I would like to  thank you for your outstanding service. I couldn't have asked for more than this. This is simply unbelievable. I will refer everyone I know.</p>
                                     <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                                 </div>
                             </div>

@@ -3,7 +3,7 @@
         
         "id": 1,
         "title": "Discover Old Dhaka - Full Day",
-        "description": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+        "description": "Discover the city of magic.The old Dhaka is a place where you can explore the historic places, awesome foods, and a different old dhaka culture.",
         "price": "10$ Hour",
         "img": "https://cdn.pixabay.com/photo/2014/10/06/13/19/bangladesh-476308_960_720.jpg"
       },
@@ -11,7 +11,7 @@
         
         "id": 2,
         "title": "Explore The Beauty of Cox Bazar",
-        "description": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+        "description": "Cox Bazar, the worlds largest sea beach of the world.Explore the Sea and amazing hospitality, fresh seafood, marine drive, and amazing St. Martin's Island",
         "price": "25$ Hour",
         "img": "https://cdn.pixabay.com/photo/2019/02/12/04/28/bangladesh-3991311_960_720.jpg"
       },
@@ -19,7 +19,7 @@
         
         "id": 3,
         "title": "Explore The Nature Of Mighty Sylhet",
-        "description": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+        "description": "Sylhet the city of Tea.In Sylhet hare you can enjoy rivers ond hills together. Enjoy the awesome places Ratargul Swamp Forest, Jaflong, Bisnakandi.",
         "price": "15$ Hour",
         "img": "https://cdn.pixabay.com/photo/2018/09/12/22/47/nature-3673387_960_720.jpg"
       }

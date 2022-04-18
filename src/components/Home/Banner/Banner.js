@@ -9,7 +9,7 @@ const Banner = () => {
             <div className="row align-items-center">
                 <div className="col-lg-6">
                     <h1>Your Travel Assistent in Bangladesh</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis voluptate necessitatibus perspiciatis culpa, porro optio magni voluptatibus sit cumque minima.</p>
+                    <p>A journey of a thousand miles begins with a single step.Wherever you go becomes a part of you somehow.lets enjoy the the land Of beauty with your travel guide David.</p>
                     <button className='btn btn-warning fw-bold py-2 px-4'>Contact Me</button>
                 </div>
                 <div className="col-lg-6 d-flex justify-content-center">
