@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
-import bgImg from '../../../images/bg-1.png';
 import googleIcon from '../../../images/icons/google.png';
 import githubIcon from '../../../images/icons/github.png';
 import facebookIcon from '../../../images/icons/facebook.png';
@@ -27,7 +26,6 @@ const SignUp = () => {
         errorElement = <div>
             <p className='text-danger'>Error: {error?.message} {githubError?.message} {googleError?.message}</p>
         </div>
-
     }
     if (user || googleUser || githubUser) {
         navigate('/home')
@@ -36,10 +34,8 @@ const SignUp = () => {
         e.preventDefault()
         createUserWithEmailAndPassword(email, password)
     }
-
-
     return (
-        <div>
+        <div style={{height: ' calc(100vh - 205px)'}}>
             <div className="container my-5">
                 <div className="row">
                     <div className="col-lg-6">
@@ -77,7 +73,7 @@ const SignUp = () => {
                         </div>
                     </div>
                     <div className="col-lg-6 d-flex justify-content-center">
-                        <img height={'400px'} src={bgImg} alt="" />
+                        <img height={'400px'} src='https://i.ibb.co/nPx8GXx/Resume-pana.png' alt="" />
                     </div>
                 </div>
             </div>

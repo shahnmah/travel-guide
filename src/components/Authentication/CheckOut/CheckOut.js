@@ -8,7 +8,7 @@ import americanIcon from '../../../images/icons/american-express.png';
 
 const CheckOut = () => {  
     return (
-        <div>
+        <div style={{height: ' calc(100vh - 200px)'}}>
             <div className="container my-5">
                 <div className="row">
                     <div className="col-lg-6">

@@ -11,25 +11,24 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import auth from '../../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail();
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    // const location = useLocation()
+    // const form = location.state.from.pathname || '/';
     let errorElement;
     if (error || githubError || googleError) {
         errorElement = <div>
             <p className='text-danger'>Error: {error?.message} {githubError?.message} {googleError?.message}</p>
         </div>
-
     }
     if (user || googleUser || githubUser) {
+        // navigate(from, {replace: true})
         navigate('/home')
     }
     const handleLoginForm = (e) => {
@@ -37,20 +36,19 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
     const handleForgotPassword = async () => {
-        if(email){
+        if (email) {
             await sendPasswordResetEmail(email);
-        toast('Sent email');
+            toast('Sent email');
         }
-        else{
+        else {
             toast('Enter Your Email First')
         }
     }
     return (
-        <div className='login-form my-5'>
+        <div style={{ height: ' calc(100vh - 250px)' }} className='login-form my-5'>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6 d-flex justify-content-center">
-                        {/* <img className='img-fluid' src={'https://img.freepik.com/free-photo/shocked-impressed-female-tourist-points-copy-space-holds-travel-map_273609-25415.jpg?t=st=1650187663~exp=1650188263~hmac=908ca8b797d417a3a5b500577dd6309f1bbcd0c4425599178d9e5b43e97361e2&w=740'} alt="" /> */}
                         <img height={'400px'} src={bgImg} alt="" />
                     </div>
                     <div className="col-lg-6 ps-5">

@@ -3,7 +3,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 
 const Blogs = () => {
     return (
-        <div className='container'>
+        <div style={{height: ' calc(100vh - 200px)'}} className='container mt-5'>
             <div className="row">
                 <div className="col-lg-4">
                     <Card>
