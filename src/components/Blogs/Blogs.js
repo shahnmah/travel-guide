@@ -29,10 +29,10 @@ const Blogs = () => {
                     <Card>
                         <Card.Img variant="top" src="https://i.pinimg.com/564x/09/63/a6/0963a6051212c3268e25d640c0410583.jpg" />
                         <Card.Body>
-                            <Card.Title>Card title</Card.Title>
+                            <Card.Title>Why are you using firebase? What other options do you have to implement authentication?</Card.Title>
                             <Card.Text>
-                                This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.
+                                Firebase হলো একটি গুগল প্ল্যাটফরম, যেটা ধারা মোবাইল এবং ওয়েব এপ্লিকেশন  তৈরি করা যায়। Firebase ব্যাবহারের অন্যতম কারণ হলো সহজেই এপ্লিকেশন তৈরি করা যায়, হোস্ট করা যায়, authentication করা যায়।
+                                Firebase ছাড়াও authentication এর আরও মাধ্যম রয়েছে। যেমনঃ Backendless, kuzzle, kinvey, Back4app ইত্যাদি । 
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>
@@ -44,10 +44,11 @@ const Blogs = () => {
                     <Card>
                         <Card.Img variant="top" src="https://i.pinimg.com/564x/09/63/a6/0963a6051212c3268e25d640c0410583.jpg" />
                         <Card.Body>
-                            <Card.Title>Card title</Card.Title>
+                            <Card.Title>What other services does firebase provide other than authentication?</Card.Title>
                             <Card.Text>
-                                This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.
+                            Authentication ছাড়াও ফায়ারবেস অনেক ধরনের সার্ভিস দিয়ে থাকে, যেমনঃ
+                            Hosting, Realtime Database, Cloud Storage, Google Analytics, Cloud Messaging, Dynamic Links, Remote Config, Cloud Firestore, Cloud Functions। 
+                                
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>
