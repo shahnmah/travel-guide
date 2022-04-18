@@ -15,7 +15,7 @@ const Testimonial = () => {
                                 <div className="card-body">
                                     <h5 className="card-title">Roberto Karlos</h5>
                                     <p className="card-text">Wow what great service, I love it! David impressed me on multiple levels. Just what I was looking for.Thanks for the great service</p>
-                                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                                    <p className="card-text"><small className="text-muted">Reviewed 15 days ago</small></p>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@ const Testimonial = () => {
                                 <div className="card-body">
                                     <h5 className="card-title">Sandro John</h5>
                                     <p className="card-text">I would like to  thank you for your outstanding service. I couldn't have asked for more than this. This is simply unbelievable. I will refer everyone I know.</p>
-                                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                                    <p className="card-text"><small className="text-muted">Reviewed 1 month ago</small></p>
                                 </div>
                             </div>
                         </div>

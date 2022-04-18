@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope,faMobile , faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faMobile, faUser } from '@fortawesome/free-solid-svg-icons';
 import bgImg from '../../../images/bg-1.png';
 import paymentIcon from '../../../images/icons/payment.png';
 import visaIcon from '../../../images/icons/visa.png';
 import americanIcon from '../../../images/icons/american-express.png';
 
-const CheckOut = () => {  
+const CheckOut = () => {
     return (
-        <div style={{height: ' calc(100vh - 200px)'}}>
+        <div style={{ height: ' calc(100vh - 200px)' }}>
             <div className="container my-5">
                 <div className="row">
                     <div className="col-lg-6">
@@ -50,7 +50,6 @@ const CheckOut = () => {
                         </div>
                     </div>
                     <div className="col-lg-6 d-flex justify-content-center">
-                        {/* <img className='img-fluid' src={'https://img.freepik.com/free-photo/shocked-impressed-female-tourist-points-copy-space-holds-travel-map_273609-25415.jpg?t=st=1650187663~exp=1650188263~hmac=908ca8b797d417a3a5b500577dd6309f1bbcd0c4425599178d9e5b43e97361e2&w=740'} alt="" /> */}
                         <img height={'400px'} src={bgImg} alt="" />
                     </div>
                 </div>

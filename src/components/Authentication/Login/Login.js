@@ -6,7 +6,7 @@ import googleIcon from '../../../images/icons/google.png';
 import githubIcon from '../../../images/icons/github.png';
 import facebookIcon from '../../../images/icons/facebook.png';
 import './Login.css';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,12 +15,10 @@ const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail();
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const navigate = useNavigate()
-    // const location = useLocation()
-    // const form = location.state.from.pathname || '/';
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
     let errorElement;
     if (error || githubError || googleError) {
         errorElement = <div>
@@ -28,13 +26,15 @@ const Login = () => {
         </div>
     }
     if (user || googleUser || githubUser) {
-        // navigate(from, {replace: true})
         navigate('/home')
     }
+    // login
     const handleLoginForm = (e) => {
         e.preventDefault()
         signInWithEmailAndPassword(email, password)
     }
+
+    // forgot password handler
     const handleForgotPassword = async () => {
         if (email) {
             await sendPasswordResetEmail(email);
@@ -49,7 +49,7 @@ const Login = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6 d-flex justify-content-center">
-                        <img height={'400px'} src={bgImg} alt="" />
+                        <img height={'400px'} src={bgImg} alt="login img" />
                     </div>
                     <div className="col-lg-6 ps-5">
                         <h1 className='mb-5'>Login</h1>
@@ -61,15 +61,15 @@ const Login = () => {
                                 <input onBlur={(e) => setEmail(e.target.value)} required className='d-block w-75' type="email" name='email' placeholder='Enter Email' />
                             </div>
                             <div className="form-group mb-1">
-                                <label for="email">
+                                <label for="password">
                                     <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
                                 </label>
                                 <input onBlur={(e) => setPassword(e.target.value)} required className='d-block w-75' type="password" name='password' placeholder='Enter Password' />
                             </div>
                             <p role="button"
-                                onClick={handleForgotPassword} className='text-decoration-none' to='/signup'>Forgot Password ?</p>
+                                onClick={handleForgotPassword} className='text-decoration-none forgot-password'>Forgot Password ?</p>
                             <Link className='text-decoration-none d-block' to='/signup'>Don't have an account ?</Link>
-                            <button className='btn btn-warning d-block py-1 px-4 mt-4'>Login</button>
+                            <button style={{background: '#FA8D24', color:'#000'}} className='btn py-1 px-4 d-block mt-4'>Login</button>
                         </form>
                         {errorElement}
                         <div className='d-flex my-5 social-option'>
@@ -87,5 +87,4 @@ const Login = () => {
         </div>
     );
 };
-
 export default Login;

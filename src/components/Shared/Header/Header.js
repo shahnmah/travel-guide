@@ -8,7 +8,7 @@ import logo from '../../../images/logo.png'
 import './Header.css'
 const Header = () => {
     const [user] = useAuthState(auth);
-    const handleSignOut = () =>{
+    const handleSignOut = () => {
         signOut(auth)
     }
     return (
@@ -16,7 +16,7 @@ const Header = () => {
             <Navbar bg="transparent" expand="lg">
                 <Container>
                     <Navbar.Brand href="#">
-                        <img height={'50px'} src={logo} alt="" />
+                        <Link to='/home'><img height={'50px'} src={logo} alt="" /></Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
@@ -29,8 +29,7 @@ const Header = () => {
                             <Link to='/aboutme'>About Me</Link>
                             <Link to='/blogs'>Blogs</Link>
                             {
-                                user? <button className='btn btn-link sign-out' onClick={handleSignOut}>SignOut</button> : <Link to='/login'>Login</Link>
-
+                                user ? <button className='btn btn-link sign-out' onClick={handleSignOut}>Sign Out</button> : <Link to='/login'>Login</Link>
                             }
                         </Nav>
                     </Navbar.Collapse>

@@ -24,3 +24,7 @@ form a{
 .social-option img{
     cursor: pointer;
 }
+.forgot-password{
+    font-size: 12px;
+    color: #999;
+}

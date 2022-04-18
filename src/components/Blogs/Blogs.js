@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const Blogs = () => {
     return (
-        <div style={{height: ' calc(100vh - 200px)'}} className='container mt-5'>
+        <div style={{ height: ' calc(100vh - 200px)' }} className='container mt-5'>
             <div className="row">
                 <div className="col-lg-4">
                     <Card>
@@ -32,7 +32,7 @@ const Blogs = () => {
                             <Card.Title>Why are you using firebase? What other options do you have to implement authentication?</Card.Title>
                             <Card.Text>
                                 Firebase হলো একটি গুগল প্ল্যাটফরম, যেটা ধারা মোবাইল এবং ওয়েব এপ্লিকেশন  তৈরি করা যায়। Firebase ব্যাবহারের অন্যতম কারণ হলো সহজেই এপ্লিকেশন তৈরি করা যায়, হোস্ট করা যায়, authentication করা যায়।
-                                Firebase ছাড়াও authentication এর আরও মাধ্যম রয়েছে। যেমনঃ Backendless, kuzzle, kinvey, Back4app ইত্যাদি । 
+                                Firebase ছাড়াও authentication এর আরও মাধ্যম রয়েছে। যেমনঃ Backendless, kuzzle, kinvey, Back4app ইত্যাদি ।
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>
@@ -46,9 +46,9 @@ const Blogs = () => {
                         <Card.Body>
                             <Card.Title>What other services does firebase provide other than authentication?</Card.Title>
                             <Card.Text>
-                            Authentication ছাড়াও ফায়ারবেস অনেক ধরনের সার্ভিস দিয়ে থাকে, যেমনঃ
-                            Hosting, Realtime Database, Cloud Storage, Google Analytics, Cloud Messaging, Dynamic Links, Remote Config, Cloud Firestore, Cloud Functions। 
-                                
+                                Authentication ছাড়াও ফায়ারবেস অনেক ধরনের সার্ভিস দিয়ে থাকে, যেমনঃ
+                                Hosting, Realtime Database, Cloud Storage, Google Analytics, Cloud Messaging, Dynamic Links, Remote Config, Cloud Firestore, Cloud Functions।
+
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>

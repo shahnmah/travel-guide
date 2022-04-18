@@ -1,7 +1,5 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
 import './banner.css'
-import bgImg from '../../../images/bg-1.png'
 
 const Banner = () => {
     return (
