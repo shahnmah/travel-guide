@@ -5,7 +5,6 @@ import CheckOut from './components/Authentication/CheckOut/CheckOut';
 import Login from './components/Authentication/Login/Login';
 import RequireAuth from './components/Authentication/RequireAuth/RequireAuth';
 import SignUp from './components/Authentication/SignUp/SignUp';
-import Blogs from './components/Blogs/Blogs';
 import Home from './components/Home/Home/Home';
 import NotFound from './components/NotFound/NotFound';
 import Footer from './components/Shared/Footer/Footer';
@@ -20,7 +19,6 @@ function App() {
         <Route path='aboutme' element={<AboutMe></AboutMe>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
-        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/checkout' element={
           <RequireAuth>
             <CheckOut></CheckOut>
